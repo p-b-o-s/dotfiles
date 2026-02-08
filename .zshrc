@@ -109,4 +109,4 @@ eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh)"
 
 # opencode
-export PATH=/home/ubuntu/.opencode/bin:$PATH
+# export PATH=/home/ubuntu/.opencode/bin:$PATH
