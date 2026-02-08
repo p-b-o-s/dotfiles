@@ -102,6 +102,31 @@ _fzf_comprun() {
   esac
 }
 
+# Docker Enter Container as 'node' user
+din() {
+  if [ -z "$1" ]; then
+    echo "❌ Error: Please specify a container name or ID."
+    echo "🐳 Running containers:"
+    docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
+    return 1
+  fi
+
+  docker exec -u node -it "$1" zsh
+}
+
+# Docker Enter LAST container as 'node' user
+dlast() {
+  local container_id=$(docker ps -q | head -n 1)
+
+  if [ -z "$container_id" ]; then
+    echo "❌ No running containers found."
+    return 1
+  fi
+
+  echo "🚀 Entering container: $container_id (User: node)..."
+  docker exec -u node -it "$container_id" zsh
+}
+
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
 
