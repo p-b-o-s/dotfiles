@@ -31,7 +31,6 @@ echo "🏠 Copying config files..."
 
 mkdir -p ~/.config/opencode
 mkdir -p ~/.config/mcp
-mkdir -p ~/.config/claude
 
 cp ~/dotfiles/.config/opencode/opencode.json ~/.config/opencode/opencode.json
 cp ~/dotfiles/.config/mcp/mcp_servers.json ~/.config/mcp/mcp_servers.json
