@@ -10,6 +10,8 @@ map("i", "jk", "<ESC>")
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --
 map("n", "<leader>ca", "lua vim.lsp.buf.code_action()")
-map("n", "<leader>th", function ()
-  require("nvchad.themes").open { border = true}
+map("n", "<leader>th", function()
+  require("nvchad.themes").open { border = true }
 end)
+
+map("n", "<leader>fh", "<cmd>Telescope find_files hidden=true<cr>", { desc = "Find hidden files" })
