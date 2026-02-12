@@ -37,9 +37,10 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias nvc='NVIM_APPNAME=nvchad nvim'
+alias nv='NVIM_APPNAME=nvchad nvim'
 alias hg='history | grep'
 alias cc='claude'
+alias lg='lazygit'
 
 
 # increase the minimum number of characters you must type

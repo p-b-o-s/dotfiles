@@ -20,9 +20,11 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "vim",
+        "c",
         "lua",
+        "vim",
         "vimdoc",
+        "query",
         "html",
         "css",
         "regex",
