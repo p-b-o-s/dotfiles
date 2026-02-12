@@ -6,13 +6,13 @@
 local M = {}
 
 M.base46 = {
-  theme = "catppuccin-latte",
+  theme = "ayu_light",
   -- theme = "bearded-arc",
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
-    CursorLineNr = { bg = "red", fg = "red" },
+    CursorLineNr = { bg = "red", fg = "white" },
   },
 }
 
