@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "gruvbox",
+  theme = "ayu_light",
   -- theme = "bearded-arc",
 
   hl_override = {

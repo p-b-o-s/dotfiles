@@ -16,7 +16,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-autocomplete)
+plugins=(git zsh-autosuggestions zsh-autocomplete aliases dircycle web-search docker brew themes)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -41,6 +41,7 @@ alias nv='NVIM_APPNAME=nvchad nvim'
 alias hg='history | grep'
 alias cc='claude'
 alias lg='lazygit'
+alias tma='tmux a'
 
 
 # increase the minimum number of characters you must type
@@ -126,6 +127,12 @@ dlast() {
 
   echo "🚀 Entering container: $container_id (User: node)..."
   docker exec -u node -it "$container_id" zsh
+}
+
+# bindkey '^I' autosuggest-accept
+
+gacp() {
+  git add . && git commit -m "$1" && git push
 }
 
 # ---- Zoxide (better cd) ----
