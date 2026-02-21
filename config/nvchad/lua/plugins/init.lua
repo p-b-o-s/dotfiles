@@ -33,6 +33,7 @@ return {
         "markdown_inline",
         "typescript",
         "tsx",
+        "zig",
       },
     },
   },
@@ -66,6 +67,20 @@ return {
     init = function()
       -- Your DBUI configuration
       vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
+  {
+    "ziglang/zig.vim",
+    url = "https://codeberg.org/ziglang/zig.vim",
+  },
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      require "configs.dap"
     end,
   },
 }
