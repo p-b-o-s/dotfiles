@@ -45,6 +45,25 @@ dap.configurations.zig = {
   },
 }
 
+dap.configurations.julia = {
+  {
+    name = "Launch Julia file",
+    type = "julia",
+    request = "launch",
+    program = "${file}",
+    stopOnEntry = false,
+  },
+  {
+    name = "Launch Julia (select file)",
+    type = "julia",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Path to Julia file: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    stopOnEntry = false,
+  },
+}
+
 -- ═══════════════════════════════════════════════════════════════════════════════
 -- KEYBINDINGS - Uncomment and adjust as needed
 -- ═══════════════════════════════════════════════════════════════════════════════
