@@ -34,8 +34,47 @@ return {
         "typescript",
         "tsx",
         "zig",
+        "rust",
+        "toml",
       },
     },
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^5",
+    lazy = false,
+    ft = { "rust" },
+    opts = {
+      server = {
+        on_attach = function(_, bufnr)
+          vim.keymap.set("n", "<leader>ca", function()
+            vim.cmd.RustLsp "codeAction"
+          end, { silent = true, buffer = bufnr })
+        end,
+        default_settings = {
+          ["rust-analyzer"] = {
+            cargo = { allFeatures = true },
+            checkOnSave = {
+              enable = true,
+              command = "clippy",
+            },
+            procMacro = { enable = true },
+            inlayHints = {
+              bindingModeHints = { enable = true },
+              chainingHints = { enable = true },
+              closingBraceHints = { enable = true },
+              closureReturnTypeHints = { enable = true },
+              lifetimeElisionHints = { enable = true },
+              parameterHints = { enable = true },
+              typeHints = { enable = true },
+            },
+          },
+        },
+      },
+    },
+    config = function(_, opts)
+      vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts)
+    end,
   },
   {
     "folke/noice.nvim",

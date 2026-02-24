@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "ts_ls", "eslint", "nim_langserver", "zls" }
+local servers = { "html", "cssls", "ts_ls", "eslint", "nim_langserver", "zls", "taplo" }
 vim.lsp.enable(servers)
 
 vim.lsp.config("zls", {

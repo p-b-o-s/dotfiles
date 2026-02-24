@@ -12,6 +12,8 @@ local options = {
     yaml = { "prettierd" },
     markdown = { "prettierd" },
     graphql = { "prettierd" },
+    rust = { "rustfmt" },
+    toml = { "taplo" },
   },
 
   format_on_save = {
