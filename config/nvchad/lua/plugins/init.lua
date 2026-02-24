@@ -34,6 +34,7 @@ return {
         "typescript",
         "tsx",
         "zig",
+        "julia",
       },
     },
   },
@@ -72,6 +73,21 @@ return {
   {
     "ziglang/zig.vim",
     url = "https://codeberg.org/ziglang/zig.vim",
+  },
+  {
+    "JuliaEditorSupport/julia-vim",
+    -- Note: Do not lazy-load (ft = "julia") to avoid LaTeXtoUnicode#Refresh errors
+    init = function()
+      -- Uncomment the line below for auto-substitution (converts LaTeX to Unicode as you type)
+      -- vim.g.latex_to_unicode_auto = 1
+    end,
+  },
+  {
+    "kdheepak/nvim-dap-julia",
+    ft = "julia",
+    config = function()
+      require("nvim-dap-julia").setup()
+    end,
   },
   {
     "mfussenegger/nvim-dap",
