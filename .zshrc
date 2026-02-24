@@ -142,3 +142,12 @@ eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh)"
 
 export PATH="$PATH:/home/ubuntu/.opencode/bin"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/ubuntu/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
