@@ -3,6 +3,20 @@ require("nvchad.configs.lspconfig").defaults()
 local servers = { "html", "cssls", "ts_ls", "eslint", "nim_langserver", "zls", "taplo", "svelte" }
 vim.lsp.enable(servers)
 
+vim.lsp.config("ols", {
+  cmd = { "/home/ubuntu/languages_from_source/ols/ols" },
+  filetypes = { "odin" },
+  root_markers = { "ols.json", ".git" },
+  init_options = {
+    enable_format = false,
+    enable_hover = true,
+    enable_document_symbols = true,
+    enable_references = true,
+    enable_semantic_tokens = true,
+  },
+})
+vim.lsp.enable("ols")
+
 vim.lsp.config("zls", {
   settings = {
     zls = {

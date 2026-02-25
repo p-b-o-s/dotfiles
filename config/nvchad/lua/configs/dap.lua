@@ -66,6 +66,22 @@ dap.configurations.rust = {
   },
 }
 
+dap.configurations.odin = {
+  {
+    name = "Launch",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      local root = vim.fn.getcwd()
+      local exe_name = vim.fn.fnamemodify(root, ":t")
+      return vim.fn.input("Path to executable: ", root .. "/" .. exe_name, "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = {},
+  },
+}
+
 local map = vim.keymap.set
 
 map("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
