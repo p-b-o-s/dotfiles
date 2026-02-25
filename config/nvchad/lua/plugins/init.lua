@@ -36,6 +36,7 @@ return {
         "zig",
         "rust",
         "toml",
+        "svelte",
       },
     },
   },

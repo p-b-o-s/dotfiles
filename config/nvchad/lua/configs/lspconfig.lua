@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "ts_ls", "eslint", "nim_langserver", "zls", "taplo" }
+local servers = { "html", "cssls", "ts_ls", "eslint", "nim_langserver", "zls", "taplo", "svelte" }
 vim.lsp.enable(servers)
 
 vim.lsp.config("zls", {
@@ -12,4 +12,35 @@ vim.lsp.config("zls", {
   },
 })
 
--- read :h vim.lsp.config for changing options of lsp servers
+vim.lsp.config("svelte", {
+  capabilities = {
+    workspace = {
+      didChangeWatchedFiles = vim.empty_dict(),
+    },
+  },
+  settings = {
+    svelte = {
+      plugin = {
+        svelte = {
+          defaultScriptLanguage = "ts",
+        },
+      },
+    },
+  },
+})
+
+vim.lsp.config("ts_ls", {
+  settings = {
+    typescript = {
+      tsserver = {
+        globalPlugins = {
+          {
+            name = "typescript-svelte-plugin",
+            location = vim.fn.expand "$MASON/packages/svelte-language-server/node_modules/typescript-svelte-plugin",
+            enableForWorkspaceTypeScriptVersions = true,
+          },
+        },
+      },
+    },
+  },
+})
