@@ -151,6 +151,11 @@ path=('/home/ubuntu/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
-#
-#
+
+
+# Odin
+
 export PATH=$HOME/languages_from_source/Odin:$PATH
+export PATH=$HOME/languages_from_source/ols:$PATH
+
+# Odin

@@ -37,6 +37,7 @@ return {
         "rust",
         "toml",
         "svelte",
+        "odin",
       },
     },
   },

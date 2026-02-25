@@ -14,10 +14,18 @@ local options = {
     graphql = { "prettierd" },
     rust = { "rustfmt" },
     toml = { "taplo" },
+    odin = { "odinfmt" },
+  },
+
+  formatters = {
+    odinfmt = {
+      command = "/home/ubuntu/languages_from_source/ols/odinfmt",
+      args = { "-stdin" },
+      stdin = true,
+    },
   },
 
   format_on_save = {
-    -- These options will be passed to conform.format()
     timeout_ms = 500,
     lsp_fallback = true,
   },
