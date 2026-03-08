@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "ts_ls", "eslint", "nim_langserver", "zls", "taplo", "svelte" }
+local servers = { "html", "cssls", "ts_ls", "eslint", "nim_langserver", "zls", "taplo", "svelte", "clangd" }
 vim.lsp.enable(servers)
 
 vim.lsp.config("ols", {
@@ -15,7 +15,7 @@ vim.lsp.config("ols", {
     enable_semantic_tokens = true,
   },
 })
-vim.lsp.enable("ols")
+vim.lsp.enable "ols"
 
 vim.lsp.config("zls", {
   settings = {
