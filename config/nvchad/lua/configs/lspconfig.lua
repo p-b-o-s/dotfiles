@@ -3,6 +3,17 @@ require("nvchad.configs.lspconfig").defaults()
 local servers = { "html", "cssls", "ts_ls", "eslint", "nim_langserver", "zls", "taplo", "svelte", "clangd" }
 vim.lsp.enable(servers)
 
+vim.lsp.config("clangd", {
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--completion-style=detailed",
+    "--header-insertion=iwyu",
+    "--function-arg-placeholders",
+    "--query-driver=/usr/bin/gcc,/usr/bin/g++,/usr/bin/clang,/usr/bin/clang++",
+  },
+})
+
 vim.lsp.config("ols", {
   cmd = { "/home/ubuntu/languages_from_source/ols/ols" },
   filetypes = { "odin" },

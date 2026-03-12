@@ -21,6 +21,7 @@ return {
     opts = {
       ensure_installed = {
         "c",
+        "cpp",
         "lua",
         "vim",
         "vimdoc",
@@ -116,12 +117,85 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    keys = {
+      {
+        "<leader>db",
+        function()
+          require("dap").toggle_breakpoint()
+        end,
+        desc = "Toggle Breakpoint",
+      },
+      {
+        "<leader>dc",
+        function()
+          require("dap").continue()
+        end,
+        desc = "Continue",
+      },
+      {
+        "<leader>dC",
+        function()
+          require("dap").run_to_cursor()
+        end,
+        desc = "Run To Cursor",
+      },
+      {
+        "<leader>dso",
+        function()
+          require("dap").step_over()
+        end,
+        desc = "Step Over",
+      },
+      {
+        "<leader>dsi",
+        function()
+          require("dap").step_into()
+        end,
+        desc = "Step Into",
+      },
+      {
+        "<leader>dsO",
+        function()
+          require("dap").step_out()
+        end,
+        desc = "Step Out",
+      },
+      {
+        "<leader>dr",
+        function()
+          require("dap").repl.toggle()
+        end,
+        desc = "Toggle REPL",
+      },
+      {
+        "<leader>du",
+        function()
+          require("dapui").toggle()
+        end,
+        desc = "Toggle Debug UI",
+      },
+      {
+        "<leader>dt",
+        function()
+          require("dap").terminate()
+        end,
+        desc = "Terminate",
+      },
+    },
     dependencies = {
       "rcarriga/nvim-dap-ui",
       "nvim-neotest/nvim-nio",
+      "theHamsta/nvim-dap-virtual-text",
     },
     config = function()
       require "configs.dap"
     end,
   },
+  -- {
+  --   "theHamsta/nvim-dap-virtual-text",
+  --   config = true,
+  --   dependencies = {
+  --     "mfussenegger/nvim-dap",
+  --   },
+  -- },
 }

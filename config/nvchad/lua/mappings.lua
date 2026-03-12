@@ -10,12 +10,12 @@ map("i", "jk", "<ESC>")
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --
 -- map("n", "<leader>ca", "lua vim.lsp.buf.code_action()")
-map("n", "<leader>ca", vim.lsp.buf.code_action)
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
 map("n", "<leader>th", function()
   require("nvchad.themes").open { border = true }
 end)
 -- map("n", "<leader>gl", "lua vim.diagnostic.open_float()")
-map("n", "<leader>gl", vim.diagnostic.open_float)
+map("n", "<leader>gl", vim.diagnostic.open_float, { desc = "Diagnostic Float" })
 
 map("n", "<leader>fh", "<cmd>Telescope find_files hidden=true<cr>", { desc = "Find hidden files" })
 
@@ -29,3 +29,5 @@ map("n", "<leader>rp", "<cmd>RustLsp parentModule<cr>", { desc = "Parent Module"
 map("n", "<leader>rm", "<cmd>RustLsp joinLines<cr>", { desc = "Join Lines" })
 map("n", "<leader>rs", "<cmd>RustLsp ssr<cr>", { desc = "Structural Search Replace" })
 map("n", "<leader>rg", "<cmd>RustLsp crateGraph<cr>", { desc = "Crate Graph" })
+
+map("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>", { desc = "Switch C source/Header" })

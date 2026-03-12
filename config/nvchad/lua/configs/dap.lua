@@ -1,7 +1,9 @@
 local dap = require "dap"
 local dapui = require "dapui"
+local dapvt = require "nvim-dap-virtual-text"
 
 dapui.setup()
+dapvt.setup()
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
@@ -82,13 +84,18 @@ dap.configurations.odin = {
   },
 }
 
-local map = vim.keymap.set
+dap.configurations.c = {
+  {
+    name = "Launch",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = {},
+  },
+}
 
-map("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-map("n", "<leader>dc", dap.continue, { desc = "Continue" })
-map("n", "<leader>dso", dap.step_over, { desc = "Step Over" })
-map("n", "<leader>dsi", dap.step_into, { desc = "Step Into" })
-map("n", "<leader>dsO", dap.step_out, { desc = "Step Out" })
-map("n", "<leader>dr", dap.repl.toggle, { desc = "Toggle REPL" })
-map("n", "<leader>du", dapui.toggle, { desc = "Toggle Debug UI" })
-map("n", "<leader>dt", dap.terminate, { desc = "Terminate" })
+dap.configurations.cpp = dap.configurations.c

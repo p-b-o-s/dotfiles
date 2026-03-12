@@ -15,6 +15,8 @@ local options = {
     rust = { "rustfmt" },
     toml = { "taplo" },
     odin = { "odinfmt" },
+    c = { "clang-format" },
+    cpp = { "clang-format" },
   },
 
   formatters = {
