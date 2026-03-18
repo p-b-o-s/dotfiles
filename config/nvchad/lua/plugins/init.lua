@@ -191,6 +191,14 @@ return {
       require "configs.dap"
     end,
   },
+  {
+    "igorlfs/nvim-dap-view",
+    -- let the plugin lazy load itself
+    lazy = false,
+    ---@module 'dap-view'
+    -- -@type dapview.Config
+    opts = {},
+  },
   -- {
   --   "theHamsta/nvim-dap-virtual-text",
   --   config = true,
